@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/generos/index.css">
+  <title>Lista de Géneros</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div class="container">
+  <h1>Géneros Registrados</h1>
+
+  <a class="btn btn-nuevo" th:href="@{/generos/nuevo}">
+    <span class="btn-icon">➕</span> Nuevo Género
+  </a>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th style="text-align: left;">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="genero : ${generos}">
+      <td th:text="${genero.idGenero}"></td>
+      <td th:text="${genero.nombre}"></td>
+      <td class="acciones-cell">
+        <a class="btn btn-editar" th:href="@{'/generos/editar/' + ${genero.idGenero}}">
+          <span class="btn-icon">✏️</span> Editar
+        </a>
+        <a class="btn btn-eliminar" th:href="@{'/generos/eliminar/' + ${genero.idGenero}}"
+           onclick="return confirm('¿Seguro que deseas eliminar este género?')">
+          <span class="btn-icon">🗑️</span> Eliminar
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 20px;">
+    <a href="/gestion" class="btn btn-secondary">← Volver a Gestión</a>
+  </div>
+</div>
+</body>
+</html>

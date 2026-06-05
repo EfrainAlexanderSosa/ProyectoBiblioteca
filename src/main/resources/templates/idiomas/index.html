@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/idiomas/index.css">
+    <title>Lista de Idiomas</title>
+</head>
+<body>
+<div class="container">
+    <h1>Idiomas Registrados</h1>
+
+    <a class="btn btn-nuevo" th:href="@{/idiomas/nuevo}">➕ Nuevo Idioma</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="idioma : ${idiomas}">
+            <td th:text="${idioma.idIdioma}"></td>
+            <td th:text="${idioma.nombre}"></td>
+            <td class="actions">
+                <a class="btn-editar" th:href="@{'/idiomas/editar/' + ${idioma.idIdioma}}">✏️ Editar</a>
+                <a class="btn-eliminar" th:href="@{'/idiomas/eliminar/' + ${idioma.idIdioma}}"
+                   onclick="return confirm('¿Seguro que desea eliminar este idioma?')">🗑️ Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 20px;">
+        <a href="/gestion" class="btn btn-secondary">← Volver a Gestión</a>
+    </div>
+</div>
+</body>
+
+</html>

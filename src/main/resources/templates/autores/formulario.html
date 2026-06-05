@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/autores/formulario.css">
+    <title th:text="${autor.idAutor} != null ? 'Editar Autor' : 'Nuevo Autor'"></title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${autor.idAutor} != null ? 'Editar Autor' : 'Nuevo Autor'"></h1>
+
+    <form th:action="@{/autores/guardar}" th:object="${autor}" method="post">
+        <input type="hidden" th:field="*{idAutor}" />
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required />
+
+        <label for="fechaDeNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaDeNacimiento" th:field="*{fechaDeNacimiento}" />
+
+        <label for="fechaDeFallecimiento">Fecha de Fallecimiento:</label>
+        <input type="date" id="fechaDeFallecimiento" th:field="*{fechaDeFallecimiento}" />
+
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/autores}" class="btn btn-cancel">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

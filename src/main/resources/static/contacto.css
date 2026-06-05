@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+}
+
+header {
+    background-color: #34495e;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.banner-contacto {
+    background-image: url("https://i.etsystatic.com/23719212/r/il/fb0389/2660290993/il_fullxfull.2660290993_tiza.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-contacto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-contacto h1 {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    z-index: 1;
+}
+
+#contacto {
+    background-color: #ecf0f1;
+    padding: 60px 20px;
+}
+
+.contacto-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contacto-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.contacto-container p.descripcion {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-contacto label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.formulario-contacto input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.formulario-contacto button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario-contacto button:hover {
+    background-color: #2c3e50;
+}
+
+.formulario-contacto textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+}
+
+
+.integrantes-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.integrantes-container h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.integrantes-container ul {
+    list-style: none;
+    padding: 0;
+    color: #2c3e50;
+}
+
+.integrantes-container li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#mensaje-exito {
+    display: none;
+    color: green;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

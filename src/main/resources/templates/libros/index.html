@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="/libros/index.css">
+</head>
+<body>
+<div class="container">
+    <h1>Libros Registrados</h1>
+    
+    <!-- BUSCADOR Y BOTÓN PDF -->
+    <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center;">
+        <form th:action="@{/libros}" method="get" style="flex: 1; display: flex; gap: 10px;">
+            <input type="text" 
+                   name="busqueda" 
+                   th:value="${busqueda}"
+                   placeholder="Buscar por título o autor..."
+                   style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            <button type="submit" class="btn-add" style="padding: 10px 20px;">
+                🔍 Buscar
+            </button>
+            <a th:href="@{/libros}" class="btn-secondary" style="padding: 10px 20px;">
+                ❌ Limpiar
+            </a>
+        </form>
+        
+        <a th:href="@{/libros/pdf(busqueda=${busqueda})}" 
+           class="btn-add" 
+           style="padding: 10px 20px; background-color: #dc3545; white-space: nowrap;">
+            📄 Generar PDF
+        </a>
+    </div>
+    
+    <a th:href="@{/libros/nuevo}" class="btn-add">➕ Nuevo Libro</a>
+    
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>ISBN</th>
+            <th>Autor</th>
+            <th>Idioma</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="libro : ${libros}">
+            <td th:text="${libro.idLibro}"></td>
+            <td th:text="${libro.titulo}"></td>
+            <td th:text="${libro.isbn}"></td>
+            <td th:text="${libro.autor.nombre}"></td>
+            <td th:text="${libro.idioma.nombre}"></td>
+            <td class="actions">
+                <a th:href="@{'/libros/editar/' + ${libro.idLibro}}">✏️ Editar</a>
+                <a th:href="@{'/libros/eliminar/' + ${libro.idLibro}}" 
+                   onclick="return confirm('¿Seguro que desea eliminar este libro?')">🗑️ Eliminar</a>
+            </td>
+        </tr>
+        <tr th:if="${libros.empty}">
+			<td colspan="6" style="text-align: center;">
+                <span th:if="${busqueda}">No se encontraron resultados para "<span th:text="${busqueda}"></span>"</span>
+                <span th:unless="${busqueda}">No hay libros registrados</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <div style="margin-top: 20px;">
+        <a href="/gestion" class="btn-secondary">← Volver a Gestión</a>
+    </div>
+</div>
+</body>
+</html>

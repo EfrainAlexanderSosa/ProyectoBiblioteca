@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/ejemplares/formulario.css">
+  <title>Formulario Ejemplar</title>
+</head>
+<body>
+<div class="container">
+  <h1 th:text="${ejemplar.idEjemplar != null} ? 'Editar Ejemplar' : 'Nuevo Ejemplar'"></h1>
+
+  <form th:action="@{/ejemplares/guardar}" th:object="${ejemplar}" method="post">
+    <input type="hidden" th:field="*{idEjemplar}" />
+
+    <label>ID Único:</label>
+    <input type="text" th:field="*{idUnico}" required />
+
+    <label>Estado:</label>
+    <select th:field="*{estado}" required>
+      <option value="">-- Seleccione --</option>
+      <option th:each="estado : ${estados}"
+              th:value="${estado}"
+              th:text="${estado}"></option>
+    </select>
+
+    <label>Pie de Imprenta:</label>
+    <input type="text" th:field="*{pieDeImprenta}" />
+
+    <label>Fecha de Devolución:</label>
+    <input type="date" th:field="*{fechaDeDevolucion}" />
+
+    <label>Libro:</label>
+    <select th:field="*{libro.idLibro}" required>
+      <option value="">-- Seleccione --</option>
+      <option th:each="libro : ${libros}"
+              th:value="${libro.idLibro}"
+              th:text="${libro.titulo}"></option>
+    </select>
+
+    <label>Prestatario (opcional):</label>
+    <select th:field="*{prestatario.idUsuario}">
+      <option value="">-- Ninguno --</option>
+      <option th:each="usuario : ${usuarios}"
+              th:value="${usuario.idUsuario}"
+              th:text="${usuario.nombre}"></option>
+    </select>
+
+    <div class="button-group">
+      <button type="submit">Guardar</button>
+      <a th:href="@{/ejemplares}" class="cancel-btn">Cancelar</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

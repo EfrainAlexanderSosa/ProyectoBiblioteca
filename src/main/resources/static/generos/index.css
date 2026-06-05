@@ -1,0 +1,115 @@
+:root {
+    --primary: #4CAF50;
+    --danger: #e74c3c;
+    --secondary: #6c757d;
+    --light-bg: #f8f9fa;
+    --table-border: #dee2e6;
+    --text-muted: #6c757d;
+    --hover-bg: #f1f1f1;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.btn-nuevo {
+    background-color: var(--primary);
+}
+
+.btn-nuevo:hover {
+    background-color: #45a049;
+}
+
+.btn-editar {
+    background-color: var(--primary);
+    color: white;
+    margin-right: 5px;
+}
+
+.btn-editar:hover {
+    background-color: #45a049;
+}
+
+.btn-eliminar {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-icon {
+    margin-right: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--table-border);
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: var(--hover-bg);
+}
+
+.acciones-cell {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}

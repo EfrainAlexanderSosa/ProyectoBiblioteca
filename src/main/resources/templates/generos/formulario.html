@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/generos/formulario.css">
+  <title>Formulario de Género</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div class="container">
+  <h1 th:text="${genero.idGenero != null} ? 'Editar Género' : 'Nuevo Género'"></h1>
+
+  <form th:action="@{/generos/guardar}" th:object="${genero}" method="post">
+    <input type="hidden" th:field="*{idGenero}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required placeholder="Ingrese el nombre del género" />
+
+    <div class="button-container">
+      <button type="submit">Guardar</button>
+      <a th:href="@{/generos}">Cancelar</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

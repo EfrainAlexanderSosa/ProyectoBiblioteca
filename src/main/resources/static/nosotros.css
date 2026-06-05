@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+}
+
+header {
+    background-color: #34495e;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+#sobre-nosotros {
+    padding: 0;
+}
+.banner-sobrenosotros {
+    background-image: url("https://media.istockphoto.com/id/1354989842/es/foto/banner-con-libros-antecedentes-empresariales-y-educativos-concepto-de-vuelta-al-cole.jpg?s=612x612&w=0&k=20&c=Izj0NRN6kITW6txq8m0hxz3epR-nY7PirC7zIk419WM=");
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-sobrenosotros::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.banner-sobrenosotros h1 {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    z-index: 1;
+}
+.contenedor-sobre {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20px;
+}
+.card-vertical {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.card-vertical img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.card-vertical .contenido {
+    padding: 20px;
+    flex: 1;
+}
+.card-vertical h3 {
+    margin-top: 0;
+    color: #34495e;
+}
+@media (max-width: 768px) {
+    .card-vertical {
+        flex-direction: column;
+    }
+    .card-vertical img {
+        width: 100%;
+        height: auto;
+    }
+    .card-vertical .contenido {
+        padding: 15px;
+    }
+}
+footer {
+    background-color: #2e4358;
+    color: white;
+    padding: 40px 20px;
+    font-family: sans-serif;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-texto {
+    flex: 1;
+    min-width: 250px;
+    font-size: 1rem;
+    padding: 10px;
+}
+.footer-mapa {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 10px;
+    text-align: center;
+}
+.footer-mapa iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+}
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 10px;
+}
+.footer-social h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+.footer-social a {
+    margin: 0 10px;
+}
+.footer-social img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease;
+}
+.footer-social img:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+}
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-texto,
+    .footer-mapa,
+    .footer-social {
+        max-width: 100%;
+    }
+}

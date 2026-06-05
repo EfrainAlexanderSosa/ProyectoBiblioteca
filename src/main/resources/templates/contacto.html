@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="contacto.css">
+    <title>Contacto - Biblioteca Central</title>
+</head>
+<body>
+
+<header>
+    <h1>Biblioteca Central</h1>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/gestion">Gestion</a>
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="btn-logout">Cerrar Sesión</button>
+        </form>
+    </nav>
+</header>
+
+<div class="banner-contacto">
+    <h1>Nuestro equipo está comprometido a brindarte el mejor apoyo. Sea cual sea tu necesidad, estamos listos para escucharte y guiarte en tu camino por el conocimiento</h1>
+</div>
+
+<section id="contacto">
+    <div class="contacto-container">
+        <h2>Formulario de Contacto</h2>
+        <p class="descripcion">
+            Si tienes alguna duda, sugerencia o deseas obtener más información sobre nuestros servicios y horarios, completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible.
+        </p>
+        <form id="form-contacto" class="formulario-contacto" action="https://formspree.io/f/mjkrjobn" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu consulta, duda o motivo de contacto..." required></textarea>
+
+            <button type="submit">Enviar</button>
+
+            <p id="mensaje-exito">¡Gracias por contactarnos! Te responderemos pronto.</p>
+        </form>
+    </div>
+    <div class="integrantes-container">
+        <h3>Integrantes del grupo</h3>
+        <ul>
+            <li>1. Mamani Ramirez Jordy</li>
+            <li>2. Mayra Naomy Villegas Gutierrez</li>
+            <li>3. Prada Rios Joel</li>
+        </ul>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2025 Biblioteca Central | Todos los derechos reservados</p>
+</footer>
+</body>
+</html>

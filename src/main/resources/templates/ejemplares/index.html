@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Ejemplares</title>
+    <link rel="stylesheet" href="/ejemplares/index.css">
+</head>
+<body>
+<div class="container">
+    <h1>Ejemplares Registrados</h1>
+    <a class="btn-nuevo" th:href="@{/ejemplares/nuevo}">➕ Nuevo Ejemplar</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Único</th>
+            <th>Estado</th>
+            <th>Libro</th>
+            <th>Prestatario</th>
+            <th>Fecha Devolución</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="e : ${ejemplares}">
+            <td th:text="${e.idEjemplar}"></td>
+            <td th:text="${e.idUnico}"></td>
+            <td th:text="${e.estado}"></td>
+            <td th:text="${e.libro.titulo}"></td>
+            <td th:text="${e.prestatario != null ? e.prestatario.nombre : 'Ninguno'}"></td>
+            <td th:text="${e.fechaDeDevolucion}"></td>
+            <td>
+                <a class="btn-editar" th:href="@{'/ejemplares/editar/' + ${e.idEjemplar}}">✏️ Editar</a>
+                <a class="btn-eliminar" th:href="@{'/ejemplares/eliminar/' + ${e.idEjemplar}}"
+                   onclick="return confirm('¿Desea eliminar este ejemplar?')">🗑️ Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="margin-top: 20px;">
+    <a href="/gestion" class="btn btn-secondary">Volver a Gestión</a>
+</div>
+</body>
+</html>

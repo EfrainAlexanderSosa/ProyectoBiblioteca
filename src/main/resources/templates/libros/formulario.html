@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/libros/formulario.css">
+    <title th:text="${libro.idLibro} ? 'Editar Libro' : 'Nuevo Libro'">Formulario Libro</title>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${libro.idLibro} ? 'Editar Libro' : 'Registrar Nuevo Libro'">Formulario Libro</h1>
+
+    <form th:action="@{/libros/guardar}" th:object="${libro}" method="post">
+        <input type="hidden" th:field="*{idLibro}">
+
+        <div>
+            <label>Título:</label>
+            <input type="text" th:field="*{titulo}" required />
+        </div>
+
+        <div>
+            <label>ISBN:</label>
+            <input type="text" th:field="*{isbn}" required maxlength="13" minlength="13" />
+        </div>
+
+        <div>
+            <label>Resumen:</label>
+            <textarea th:field="*{resumen}" rows="5" cols="40"></textarea>
+        </div>
+
+        <div>
+            <label>Autor:</label>
+            <select th:field="*{autor.idAutor}" required>
+                <option value="" disabled th:selected="${libro.autor == null}">Seleccione un autor</option>
+                <option th:each="autor : ${autores}"
+                        th:value="${autor.idAutor}"
+                        th:text="${autor.nombre}"
+                        th:selected="${libro.autor != null and libro.autor.idAutor == autor.idAutor}">
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label>Idioma:</label>
+            <select th:field="*{idioma.idIdioma}" required>
+                <option value="" disabled th:selected="${libro.idioma == null}">Seleccione un idioma</option>
+                <option th:each="idioma : ${idiomas}"
+                        th:value="${idioma.idIdioma}"
+                        th:text="${idioma.nombre}"
+                        th:selected="${libro.idioma != null and libro.idioma.idIdioma == idioma.idIdioma}">
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label>Géneros:</label>
+            <div th:each="genero : ${generos}">
+                <input type="checkbox" th:field="*{generos}" th:value="${genero.idGenero}"
+                       th:id="'genero_' + ${genero.idGenero}">
+                <label th:for="'genero_' + ${genero.idGenero}" th:text="${genero.nombre}"></label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn btn-save">Guardar</button>
+            <a th:href="@{/libros}" class="btn btn-cancel">Cancelar</a>
+        </div>
+    </form>
+
+    <a th:href="@{/libros}">← Volver al listado</a>
+</div>
+</body>
+</html>

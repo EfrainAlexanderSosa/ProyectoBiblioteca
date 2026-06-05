@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/idiomas/formulario.css">
+    <title th:text="${idioma.idIdioma} != null ? 'Editar Idioma' : 'Nuevo Idioma'"></title>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${idioma.idIdioma} != null ? 'Editar Idioma' : 'Nuevo Idioma'"></h1>
+
+    <form th:action="@{/idiomas/guardar}" th:object="${idioma}" method="post">
+        <input type="hidden" th:field="*{idIdioma}" />
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required />
+
+        <div class="button-group">
+            <button type="submit">Guardar</button>
+            <a th:href="@{/idiomas}" class="cancel">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

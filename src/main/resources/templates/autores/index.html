@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/autores/index.css">
+  <title>Lista de Autores</title>
+</head>
+<body>
+<div class="container">
+  <h1>Autores Registrados</h1>
+  <a th:href="@{/autores/nuevo}" class="btn-nuevo">
+    <span class="emoji">➕</span> Nuevo Autor
+  </a>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Fecha de Fallecimiento</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="autor : ${autores}">
+      <td th:text="${autor.idAutor}"></td>
+      <td th:text="${autor.nombre}"></td>
+      <td th:text="${autor.fechaDeNacimiento}"></td>
+      <td th:text="${autor.fechaDeFallecimiento}"></td>
+      <td class="acciones-cell">
+        <a th:href="@{'/autores/editar/' + ${autor.idAutor}}" class="btn-editar">
+          <span class="emoji">✏️</span> Editar
+        </a>
+        <a th:href="@{'/autores/eliminar/' + ${autor.idAutor}}"
+           class="btn-eliminar"
+           onclick="return confirm('¿Seguro que desea eliminar este autor?')">
+          <span class="emoji">🗑️</span> Eliminar
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 20px;">
+    <a href="/gestion" class="btn btn-secondary">Volver a Gestión</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="gestion.css">
+    <title>Panel de Gestión - Biblioteca Central</title>
+</head>
+<body>
+
+<header>
+    <h1>Biblioteca Central</h1>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/gestion">Gestión</a>
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="btn-logout">Cerrar Sesión</button>
+        </form>
+    </nav>
+</header>
+<div class="banner-gestion">
+    <h1>Panel de Gestión Interna de la Biblioteca Central. Acceso restringido para personal autorizado. Utilice las herramientas para una administración eficiente y segura de nuestros recursos.</h1>
+</div>
+<section id="gestion">
+    <div class="panel-container">
+        <h2>Gestión de Biblioteca</h2>
+        <div class="seccion-gestion">
+            <h3>Usuarios</h3>
+            <div class="botones-gestion">
+                <a href="/usuarios/nuevo" class="boton-gestion">Registrar Usuario</a>
+                <a href="/usuarios" class="boton-gestion">Listar Usuarios</a>
+            </div>
+        </div>
+        <div class="seccion-gestion">
+            <h3>Libros</h3>
+            <div class="botones-gestion">
+                <a href="/libros/nuevo" class="boton-gestion">Registrar Libro</a>
+                <a href="/libros" class="boton-gestion">Listar Libros</a>
+            </div>
+        </div>
+        <div class="seccion-gestion">
+            <h3>Autores</h3>
+            <div class="botones-gestion">
+                <a href="/autores/nuevo" class="boton-gestion">Registrar Autor</a>
+                <a href="/autores" class="boton-gestion">Listar Autor</a>
+            </div>
+        </div>
+        <div class="seccion-gestion">
+            <h3>Generos</h3>
+            <div class="botones-gestion">
+                <a href="/generos/nuevo" class="boton-gestion">Registrar Genero</a>
+                <a href="/generos" class="boton-gestion">Listar Genero</a>
+            </div>
+        </div>
+        <div class="seccion-gestion">
+            <h3>Idiomas</h3>
+            <div class="botones-gestion">
+                <a href="/idiomas/nuevo" class="boton-gestion">Registrar Idioma</a>
+                <a href="/idiomas" class="boton-gestion">Listar Idiomas</a>
+            </div>
+        </div>
+        <div class="seccion-gestion">
+            <h3>Ejemplares</h3>
+            <div class="botones-gestion">
+                <a href="/ejemplares/nuevo" class="boton-gestion">Registrar Ejemplar</a>
+                <a href="/ejemplares" class="boton-gestion">Listar Ejemplares</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2025 Biblioteca Central | Todos los derechos reservados</p>
+</footer>
+</body>
+</html>
